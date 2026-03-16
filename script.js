@@ -1,326 +1,62 @@
+// Typing effect
 
-// Loading Animation
-document.addEventListener('DOMContentLoaded', () => {
-    const loadingContainer = document.getElementById('loading');
-    
-    // Create the terminal-style elements
-    loadingContainer.innerHTML = `
-        <div class="terminal-text">
-            <span class="terminal-prompt">bash$</span>
-            <span class="terminal-command" id="typed-command"></span>
-            <span class="terminal-cursor"></span>
-        </div>
-    `;
-    
-    const typedCommand = document.getElementById('typed-command');
-    const text = "cd ~/vikram's-portfolio";
-    let charIndex = 0;
-    
-    // References to elements for animations
-    const navbar = document.getElementById('navbar');
-    const mobileNav = document.getElementById('mobile-nav');
-    const heroTitle = document.getElementById('hero-title');
-    const heroSubtitle = document.getElementById('hero-subtitle');
-    const ctaButtons = document.getElementById('cta-buttons');
-    const sectionTitles = document.querySelectorAll('.section-title');
-    const aboutContent = document.querySelector('.about-content');
-    const skillsGrid = document.querySelector('.skills-grid');
-    const projectsGrid = document.querySelector('.projects-grid');
-    const blogGrid = document.querySelector('.blog-grid');
-    const contactContainer = document.querySelector('.contact-container');
+const text = "Cybersecurity Student | Ethical Hacking | Network Security";
+let index = 0;
 
-    // Type out the command character by character
-    function typeText() {
-        if (charIndex < text.length) {
-            typedCommand.textContent += text.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeText, 100);
-        } else {
-            // After typing completes, wait and then fade out
-            setTimeout(() => {
-                gsap.to(loadingContainer, {
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: () => {
-                        loadingContainer.style.display = 'none';
-                        // Initialize animations for page content
-                        initAnimations();
-                    }
-                });
-            }, 1000);
-        }
-    }
-    
-    // Start typing after a short delay
-    setTimeout(typeText, 500);
+function type() {
 
-    function initAnimations() {
-        // Navbar animation
-        gsap.to(navbar, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.5
-        });
+document.getElementById("typing").innerHTML =
+text.slice(0, index++);
 
-        gsap.to(mobileNav, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.5
-        });
+if(index > text.length){
+index = 0;
+}
 
-        // Hero section animations
-        gsap.to(heroTitle, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.7
-        });
+setTimeout(type,100);
+}
 
-        gsap.to(heroSubtitle, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.9
-        });
+type();
 
-        gsap.to(ctaButtons, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            delay: 1.1
-        });
 
-        // Section title animations
-        gsap.to(sectionTitles, {
-            scrollTrigger: {
-                trigger: sectionTitles,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power3.out"
-        });
 
-        // About section animation
-        gsap.to(aboutContent, {
-            scrollTrigger: {
-                trigger: aboutContent,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
-        });
+// Matrix Rain Effect
 
-        // Skills grid animation
-        gsap.to(skillsGrid, {
-            scrollTrigger: {
-                trigger: skillsGrid,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
-        });
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
 
-        // Projects grid animation
-        gsap.to(projectsGrid, {
-            scrollTrigger: {
-                trigger: projectsGrid,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
-        });
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
-        // Blog grid animation
-        gsap.to(blogGrid, {
-            scrollTrigger: {
-                trigger: blogGrid,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
-        });
+const letters = "01";
+const fontSize = 14;
 
-        // Contact container animation
-        gsap.to(contactContainer, {
-            scrollTrigger: {
-                trigger: contactContainer,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out"
-        });
+const columns = canvas.width/fontSize;
 
-        // Initialize particles.js
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#3b82f6"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#3b82f6",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
+const drops = [];
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+for(let x = 0; x < columns; x++)
+drops[x] = 1;
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
+function draw(){
 
-                const formData = new FormData(contactForm);
+ctx.fillStyle = "rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-                fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('✅ Message sent! Thank you.');
-                            contactForm.reset();
-                        } else {
-                            alert('❌ There was a problem. Please try again.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('❌ Error sending message.');
-                    });
-            });
-        }
-    }
-});
+ctx.fillStyle = "#00ff9c";
+ctx.font = fontSize + "px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text = letters[Math.floor(Math.random()*letters.length)];
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize > canvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+}
+
+}
+
+setInterval(draw,33);
