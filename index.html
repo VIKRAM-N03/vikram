@@ -1,172 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Vikram N – Cybersecurity Student | Ethical Hacking | Web Security | Portfolio"/>
+  <title>Vikram N | Cybersecurity & Web Security</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico"/>
 
-<title>Vikram N | Cybersecurity Portfolio</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-<link rel="stylesheet" href="style.css">
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+  <link rel="stylesheet" href="style.css"/>
 </head>
-
 <body>
 
-<canvas id="matrix"></canvas>
+<!-- Loading Screen -->
+<div class="loading-container" id="loading">
+  <div class="terminal-text">
+    <span class="terminal-prompt">guest@vikram:~$</span>
+    <span class="terminal-command" id="typed-command"></span>
+    <span class="terminal-cursor"></span>
+  </div>
+</div>
 
-<header>
+<!-- Particles background -->
+<div id="particles-js"></div>
 
-<div class="logo">VIKRAM N</div>
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="brand">
+    <div class="logo">V</div>
+    <span class="brand-name">Vikram N</span>
+  </div>
 
-<nav>
-
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
-</header>
+<main class="main-container">
 
+  <!-- HERO -->
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title glitch" data-text="Vikram N">Vikram N</h1>
+      <div class="hero-subtitle typing">Cybersecurity Enthusiast & Web Security Explorer</div>
+      <div class="cta-buttons">
+        <a href="#projects" class="primary-btn">View Arsenal</a>
+        <a href="#contact" class="secondary-btn">Engage</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <h2 class="section-title">Mission Briefing</h2>
+    <div class="about-content glass-card">
+      <div class="about-text">
+        <p>
+          I'm a cybersecurity student passionate about <strong>ethical hacking</strong>, 
+          <strong>web application security</strong>, network defense, and secure development.
+        </p>
+        <p>
+          I enjoy CTFs, bug bounty hunting, building security tools, and learning how attackers think 
+          — so I can build systems that survive them.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section class="hero">
+  <!-- SKILLS -->
+  <section class="skills-section" id="skills">
+    <h2 class="section-title">Toolset & Arsenal</h2>
+    <div class="skills-grid">
+      <div class="skill-card glass-card">
+        <i class="fab fa-js skill-icon"></i>
+        <h3>JavaScript</h3>
+        <p>ES6+, secure coding, XSS prevention</p>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fab fa-python skill-icon"></i>
+        <h3>Python</h3>
+        <p>Automation, scripting, exploit PoCs</p>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fas fa-terminal skill-icon"></i>
+        <h3>Kali Linux</h3>
+        <p>Metasploit, Nmap, Burp Suite</p>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fab fa-react skill-icon"></i>
+        <h3>React</h3>
+        <p>Secure frontend development</p>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fas fa-server skill-icon"></i>
+        <h3>Node.js / Express</h3>
+        <p>API security, JWT, rate limiting</p>
+      </div>
+      <div class="skill-card glass-card">
+        <i class="fas fa-shield-alt skill-icon"></i>
+        <h3>Web Security</h3>
+        <p>OWASP Top 10, secure headers</p>
+      </div>
+    </div>
+  </section>
 
-<h1>Hello, I'm <span>Vikram N</span></h1>
+  <!-- PROJECTS -->
+  <section class="projects-section" id="projects">
+    <h2 class="section-title">Operations Log</h2>
+    <div class="projects-grid">
 
-<p id="typing"></p>
+      <div class="project-card glass-card">
+        <div class="project-image" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1555949963-aa79d0ebc8fb?w=800');"></div>
+        <div class="project-content">
+          <h3>Web Vulnerability Dashboard</h3>
+          <div class="project-tech">
+            <span>Python</span><span>Flask</span><span>OWASP ZAP</span>
+          </div>
+          <p>Real-time vuln scanner frontend with ZAP API integration.</p>
+          <div class="project-links">
+            <a href="https://github.com/VIKRAM-N03" target="_blank"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+      </div>
 
-<a href="#projects" class="btn">View Projects</a>
+      <div class="project-card glass-card">
+        <div class="project-image" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1555066931-bf19c65fd1b8?w=800');"></div>
+        <div class="project-content">
+          <h3>Secure File Uploader</h3>
+          <div class="project-tech">
+            <span>Node.js</span><span>Express</span><span>Multer</span><span>ClamAV</span>
+          </div>
+          <p>File upload service with virus scanning, size limit & content validation.</p>
+          <div class="project-links">
+            <a href="https://github.com/VIKRAM-N03" target="_blank"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+      </div>
 
-</section>
+      <div class="project-card glass-card">
+        <div class="project-image" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800');"></div>
+        <div class="project-content">
+          <h3>Password Strength Analyzer</h3>
+          <div class="project-tech">
+            <span>React</span><span>Tailwind</span><span>zxcvbn</span>
+          </div>
+          <p>Client-side password strength checker with breach detection hints.</p>
+          <div class="project-links">
+            <a href="https://github.com/VIKRAM-N03" target="_blank"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </section>
 
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <h2 class="section-title">Establish Connection</h2>
+    <div class="contact-container glass-card">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <a href="mailto:vickyreddy2005@gmail.com">vickyreddy2005@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone contact-icon"></i>
+          <a href="tel:+919535251215">+91 95352 51215</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <span>Bengaluru, Karnataka</span>
+        </div>
+      </div>
 
-<section id="about">
+      <div class="social-links">
+        <a href="https://github.com/VIKRAM-N03" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/vikram-ccs" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
 
-<h2 class="section-title">About Me</h2>
+</main>
 
-<p class="about-text">
-
-Cybersecurity student passionate about ethical hacking,
-network security and secure system development.
-
-I enjoy learning penetration testing tools and exploring
-security vulnerabilities to build safer digital systems.
-
-</p>
-
-</section>
-
-
-
-<section id="skills">
-
-<h2 class="section-title">Skills</h2>
-
-<div class="skills">
-
-<div class="card">
-<i class="fas fa-code"></i>
-<h3>Programming</h3>
-<p>Python, Java, C, JavaScript</p>
-</div>
-
-<div class="card">
-<i class="fas fa-globe"></i>
-<h3>Web Development</h3>
-<p>HTML, CSS, React, Node.js</p>
-</div>
-
-<div class="card">
-<i class="fas fa-shield-alt"></i>
-<h3>Cybersecurity</h3>
-<p>Ethical Hacking, Network Security</p>
-</div>
-
-<div class="card">
-<i class="fas fa-terminal"></i>
-<h3>Tools</h3>
-<p>Kali Linux, Nmap, Burp Suite</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="projects">
-
-<h2 class="section-title">Projects</h2>
-
-<div class="projects">
-
-<div class="project-card">
-<h3>Collab Board</h3>
-<p>React and Firebase based collaboration app.</p>
-</div>
-
-<div class="project-card">
-<h3>Remote Access Trojan</h3>
-<p>Python RAT for cybersecurity research.</p>
-</div>
-
-<div class="project-card">
-<h3>Landslide Detection</h3>
-<p>IoT based monitoring system using Raspberry Pi.</p>
-</div>
-
-<div class="project-card">
-<h3>Salary Predictor</h3>
-<p>Machine learning app to predict salary trends.</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="contact">
-
-<h2 class="section-title">Contact</h2>
-
-<div class="contact">
-
-<p>Email: vickyreddy2005@gmail.com</p>
-
-<p>Phone: +91 9535251215</p>
-
-<p>Location: Chikkabanavara, Bangalore</p>
-
-<div class="social">
-
-<a href="https://github.com/VIKRAM-N03"><i class="fab fa-github"></i></a>
-
-<a href="https://www.linkedin.com/in/vikram-ccs/"><i class="fab fa-linkedin"></i></a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-<p>© 2025 Vikram N | Cybersecurity Portfolio</p>
-
+<footer class="footer">
+  <p>© 2026 Vikram N • Built with security in mind</p>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
