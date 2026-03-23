@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vikram N | Portfolio</title>
+<title>Vikram N | Cybersecurity</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+
+<!-- PARTICLES -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <script>
 window.GH_IMAGES = {
   user: 'VIKRAM-N03',
-  repo: 'portfolio', // ⚠️ CHANGE THIS if repo name differs
+  repo: 'portfolio', // ⚠️ CHANGE IF DIFFERENT
   branch: 'main',
   base() {
     return `https://raw.githubusercontent.com/${this.user}/${this.repo}/${this.branch}/images/`;
@@ -23,50 +29,67 @@ window.GH_IMAGES = {
 
 <body>
 
+<!-- BACKGROUND -->
+<div id="particles-js"></div>
+<canvas id="matrix-canvas"></canvas>
+
 <!-- HERO -->
 <section class="hero">
-  <h1>Vikram N</h1>
-  <p>Cybersecurity | Ethical Hacker</p>
 
-  <!-- Avatar -->
-  <svg width="200" height="220">
-    <image id="avatarImg"
-      href="images/avatar.jpg"
-      width="200" height="220"/>
-  </svg>
+  <div class="hero-left">
+    <h1>VIKRAM N</h1>
+    <p id="role">Ethical Hacker</p>
+
+    <p class="desc">
+      Securing the web one exploit at a time.
+    </p>
+  </div>
+
+  <!-- AVATAR -->
+  <div class="hero-right">
+    <svg viewBox="0 0 200 240">
+      <image id="avatarImg"
+        href="images/avatar.jpg"
+        width="200" height="240"/>
+    </svg>
+  </div>
+
 </section>
 
 <!-- ABOUT -->
-<section>
-  <h2>About</h2>
+<section class="about">
+  <h2>About Me</h2>
 
-  <img id="aboutPhoto" src="images/profile.jpg" width="300">
+  <img id="aboutPhoto" src="images/profile.jpg" class="profile">
 
-  <p>I am a cybersecurity student passionate about ethical hacking and web security.</p>
+  <p>
+    Cybersecurity student passionate about ethical hacking,
+    web security, and bug bounty hunting.
+  </p>
 </section>
 
 <!-- PROJECTS -->
-<section>
+<section class="projects">
   <h2>Projects</h2>
 
-  <div class="project">
+  <div class="project-card">
     <img class="gh-project-img"
-         data-img="projects/project-vuln-dashboard.jpg"
-         src="images/projects/project-vuln-dashboard.jpg">
+      data-img="projects/project-vuln-dashboard.jpg"
+      src="images/projects/project-vuln-dashboard.jpg">
     <h3>Vulnerability Dashboard</h3>
   </div>
 
-  <div class="project">
+  <div class="project-card">
     <img class="gh-project-img"
-         data-img="projects/project-file-uploader.jpg"
-         src="images/projects/project-file-uploader.jpg">
+      data-img="projects/project-file-uploader.jpg"
+      src="images/projects/project-file-uploader.jpg">
     <h3>Secure File Upload</h3>
   </div>
 
-  <div class="project">
+  <div class="project-card">
     <img class="gh-project-img"
-         data-img="projects/project-password-analyzer.jpg"
-         src="images/projects/project-password-analyzer.jpg">
+      data-img="projects/project-password-analyzer.jpg"
+      src="images/projects/project-password-analyzer.jpg">
     <h3>Password Analyzer</h3>
   </div>
 
