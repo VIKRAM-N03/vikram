@@ -1,435 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Vikram N – Cybersecurity Student | Ethical Hacking | Web Security | Portfolio"/>
-  <title>Vikram N | Cybersecurity & Web Security</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikram N | Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<script>
+window.GH_IMAGES = {
+  user: 'VIKRAM-N03',
+  repo: 'portfolio', // ⚠️ CHANGE THIS if repo name differs
+  branch: 'main',
+  base() {
+    return `https://raw.githubusercontent.com/${this.user}/${this.repo}/${this.branch}/images/`;
+  },
+  url(file) { return this.base() + file; }
+};
+</script>
 
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
-
-  <!-- particles.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-  <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
-<!-- Custom Cursor -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<!-- HERO -->
+<section class="hero">
+  <h1>Vikram N</h1>
+  <p>Cybersecurity | Ethical Hacker</p>
 
-<!-- Scanline overlay -->
-<div class="scanlines"></div>
+  <!-- Avatar -->
+  <svg width="200" height="220">
+    <image id="avatarImg"
+      href="images/avatar.jpg"
+      width="200" height="220"/>
+  </svg>
+</section>
 
-<!-- Loading Screen -->
-<div class="loading-container" id="loading">
-  <div class="boot-sequence">
-    <div class="boot-logo">
-      <span class="boot-v">V</span>
-      <div class="boot-bars">
-        <div class="boot-bar"></div>
-        <div class="boot-bar"></div>
-        <div class="boot-bar"></div>
-      </div>
-    </div>
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <span class="t-dot t-red"></span>
-        <span class="t-dot t-yellow"></span>
-        <span class="t-dot t-green"></span>
-        <span class="t-title">vikram@kali: ~</span>
-      </div>
-      <div class="terminal-body">
-        <div class="terminal-line"><span class="t-prompt">┌──(vikram㉿kali)-[~]</span></div>
-        <div class="terminal-line"><span class="t-prompt">└─$ </span><span class="typed-cmd" id="typed-command"></span><span class="terminal-cursor"></span></div>
-        <div class="terminal-output" id="terminal-output"></div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- ABOUT -->
+<section>
+  <h2>About</h2>
 
-<!-- Particles background -->
-<div id="particles-js"></div>
+  <img id="aboutPhoto" src="images/profile.jpg" width="300">
 
-<!-- Matrix rain canvas -->
-<canvas id="matrix-canvas"></canvas>
+  <p>I am a cybersecurity student passionate about ethical hacking and web security.</p>
+</section>
 
-<!-- Navbar -->
-<nav class="navbar" id="navbar">
-  <div class="brand">
-    <div class="logo-hex">
-      <svg viewBox="0 0 100 115" class="hex-svg">
-        <polygon points="50,5 95,27.5 95,87.5 50,110 5,87.5 5,27.5" fill="none" stroke="url(#hexGrad)" stroke-width="3"/>
-        <defs>
-          <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#00ff9f"/>
-            <stop offset="100%" style="stop-color:#0066ff"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <span class="hex-letter">V</span>
-    </div>
-    <div class="brand-text">
-      <span class="brand-name">VIKRAM_N</span>
-      <span class="brand-sub">// security.researcher</span>
-    </div>
+<!-- PROJECTS -->
+<section>
+  <h2>Projects</h2>
+
+  <div class="project">
+    <img class="gh-project-img"
+         data-img="projects/project-vuln-dashboard.jpg"
+         src="images/projects/project-vuln-dashboard.jpg">
+    <h3>Vulnerability Dashboard</h3>
   </div>
 
-  <div class="nav-links">
-    <a href="#hero" data-text="Home">Home</a>
-    <a href="#about" data-text="About">About</a>
-    <a href="#skills" data-text="Skills">Skills</a>
-    <a href="#projects" data-text="Projects">Projects</a>
-    <a href="#contact" data-text="Contact">Contact</a>
+  <div class="project">
+    <img class="gh-project-img"
+         data-img="projects/project-file-uploader.jpg"
+         src="images/projects/project-file-uploader.jpg">
+    <h3>Secure File Upload</h3>
   </div>
 
-  <div class="nav-status">
-    <span class="status-dot"></span>
-    <span class="status-text">ONLINE</span>
+  <div class="project">
+    <img class="gh-project-img"
+         data-img="projects/project-password-analyzer.jpg"
+         src="images/projects/project-password-analyzer.jpg">
+    <h3>Password Analyzer</h3>
   </div>
-</nav>
 
-<main class="main-container">
-
-  <!-- HERO -->
-  <section class="hero-section" id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="eyebrow-line"></span>
-        <span>PORTFOLIO v2.0 // 2026</span>
-        <span class="eyebrow-line"></span>
-      </div>
-      <h1 class="hero-title">
-        <span class="title-line glitch-wrap">
-          <span class="glitch" data-text="VIKRAM">VIKRAM</span>
-        </span>
-        <span class="title-line glitch-wrap title-offset">
-          <span class="glitch" data-text="NARAYAN">NARAYAN</span>
-        </span>
-      </h1>
-      <div class="hero-role">
-        <span class="role-bracket">[</span>
-        <span class="role-text" id="role-text"></span>
-        <span class="role-cursor">|</span>
-        <span class="role-bracket">]</span>
-      </div>
-      <p class="hero-desc">
-        Securing the web one exploit at a time. CTF player, bug hunter,<br>and builder of things that survive the attack surface.
-      </p>
-      <div class="cta-buttons">
-        <a href="#projects" class="primary-btn">
-          <span class="btn-border"></span>
-          <i class="fas fa-terminal"></i> View Arsenal
-        </a>
-        <a href="#contact" class="secondary-btn">
-          <span class="btn-border"></span>
-          <i class="fas fa-satellite-dish"></i> Engage
-        </a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num" data-count="15">0</span>
-          <span class="stat-label">Projects</span>
-        </div>
-        <div class="stat-divider">//</div>
-        <div class="stat">
-          <span class="stat-num" data-count="30">0</span>
-          <span class="stat-label">CVEs Studied</span>
-        </div>
-        <div class="stat-divider">//</div>
-        <div class="stat">
-          <span class="stat-num" data-count="50">0</span>
-          <span class="stat-label">CTF Challenges</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>SCROLL</span>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <div class="section-label">01 // MISSION_BRIEFING</div>
-    <h2 class="section-title">About Me</h2>
-
-    <div class="about-layout">
-      <div class="about-terminal glass-card">
-        <div class="terminal-header">
-          <span class="t-dot t-red"></span>
-          <span class="t-dot t-yellow"></span>
-          <span class="t-dot t-green"></span>
-          <span class="t-title">profile.sh</span>
-        </div>
-        <div class="about-code">
-          <div class="code-line"><span class="code-key">name</span><span class="code-eq"> = </span><span class="code-str">"Vikram N"</span></div>
-          <div class="code-line"><span class="code-key">role</span><span class="code-eq"> = </span><span class="code-str">"Cybersecurity Student"</span></div>
-          <div class="code-line"><span class="code-key">location</span><span class="code-eq"> = </span><span class="code-str">"Bengaluru, India"</span></div>
-          <div class="code-line"><span class="code-key">focus</span><span class="code-eq"> = </span><span class="code-arr">["ethical hacking", "web security", "CTFs"]</span></div>
-          <div class="code-line"><span class="code-key">status</span><span class="code-eq"> = </span><span class="code-bool">open_to_opportunities</span></div>
-        </div>
-      </div>
-
-      <div class="about-text-block">
-        <p>
-          I'm a cybersecurity student passionate about <strong>ethical hacking</strong>,
-          <strong>web application security</strong>, network defense, and secure development.
-        </p>
-        <p>
-          I enjoy CTFs, bug bounty hunting, building security tools, and learning how attackers think
-          — so I can build systems that survive them.
-        </p>
-
-        <div class="about-badges">
-          <div class="badge"><i class="fas fa-bug"></i> Bug Bounty Hunter</div>
-          <div class="badge"><i class="fas fa-flag"></i> CTF Player</div>
-          <div class="badge"><i class="fas fa-shield-halved"></i> OWASP Advocate</div>
-          <div class="badge"><i class="fas fa-code"></i> Secure Dev</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="skills-section" id="skills">
-    <div class="section-label">02 // TOOLSET_AND_ARSENAL</div>
-    <h2 class="section-title">Skills</h2>
-
-    <div class="skills-grid">
-
-      <div class="skill-card glass-card" data-level="85">
-        <div class="skill-header">
-          <i class="fab fa-js skill-icon"></i>
-          <div class="skill-level-badge">ADV</div>
-        </div>
-        <h3>JavaScript</h3>
-        <p>ES6+, secure coding, XSS prevention</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar" data-width="85"></div>
-        </div>
-      </div>
-
-      <div class="skill-card glass-card" data-level="90">
-        <div class="skill-header">
-          <i class="fab fa-python skill-icon"></i>
-          <div class="skill-level-badge">ADV</div>
-        </div>
-        <h3>Python</h3>
-        <p>Automation, scripting, exploit PoCs</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar" data-width="90"></div>
-        </div>
-      </div>
-
-      <div class="skill-card glass-card" data-level="80">
-        <div class="skill-header">
-          <i class="fas fa-terminal skill-icon"></i>
-          <div class="skill-level-badge">ADV</div>
-        </div>
-        <h3>Kali Linux</h3>
-        <p>Metasploit, Nmap, Burp Suite</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar" data-width="80"></div>
-        </div>
-      </div>
-
-      <div class="skill-card glass-card" data-level="75">
-        <div class="skill-header">
-          <i class="fab fa-react skill-icon"></i>
-          <div class="skill-level-badge">MID</div>
-        </div>
-        <h3>React</h3>
-        <p>Secure frontend development</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar" data-width="75"></div>
-        </div>
-      </div>
-
-      <div class="skill-card glass-card" data-level="78">
-        <div class="skill-header">
-          <i class="fas fa-server skill-icon"></i>
-          <div class="skill-level-badge">MID</div>
-        </div>
-        <h3>Node.js / Express</h3>
-        <p>API security, JWT, rate limiting</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar" data-width="78"></div>
-        </div>
-      </div>
-
-      <div class="skill-card glass-card" data-level="88">
-        <div class="skill-header">
-          <i class="fas fa-shield-alt skill-icon"></i>
-          <div class="skill-level-badge">ADV</div>
-        </div>
-        <h3>Web Security</h3>
-        <p>OWASP Top 10, secure headers</p>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar" data-width="88"></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects-section" id="projects">
-    <div class="section-label">03 // OPERATIONS_LOG</div>
-    <h2 class="section-title">Projects</h2>
-
-    <div class="projects-grid">
-
-      <div class="project-card glass-card">
-        <div class="project-header">
-          <div class="project-num">01</div>
-          <div class="project-status"><span class="status-dot green"></span> ACTIVE</div>
-        </div>
-        <div class="project-icon-wrap">
-          <i class="fas fa-spider project-icon"></i>
-        </div>
-        <h3>Web Vulnerability Dashboard</h3>
-        <p>Real-time vuln scanner frontend with ZAP API integration. Detects OWASP Top 10 vulnerabilities and displays risk scores.</p>
-        <div class="project-tech">
-          <span>Python</span><span>Flask</span><span>OWASP ZAP</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/VIKRAM-N03" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-        </div>
-        <div class="project-bg-num">01</div>
-      </div>
-
-      <div class="project-card glass-card">
-        <div class="project-header">
-          <div class="project-num">02</div>
-          <div class="project-status"><span class="status-dot green"></span> ACTIVE</div>
-        </div>
-        <div class="project-icon-wrap">
-          <i class="fas fa-virus-slash project-icon"></i>
-        </div>
-        <h3>Secure File Uploader</h3>
-        <p>File upload service with virus scanning, MIME type validation, size limits, and ClamAV integration for zero-day detection.</p>
-        <div class="project-tech">
-          <span>Node.js</span><span>Express</span><span>Multer</span><span>ClamAV</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/VIKRAM-N03" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-        </div>
-        <div class="project-bg-num">02</div>
-      </div>
-
-      <div class="project-card glass-card">
-        <div class="project-header">
-          <div class="project-num">03</div>
-          <div class="project-status"><span class="status-dot green"></span> ACTIVE</div>
-        </div>
-        <div class="project-icon-wrap">
-          <i class="fas fa-key project-icon"></i>
-        </div>
-        <h3>Password Strength Analyzer</h3>
-        <p>Client-side password strength checker with entropy analysis, breach detection hints, and real-time feedback.</p>
-        <div class="project-tech">
-          <span>React</span><span>Tailwind</span><span>zxcvbn</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/VIKRAM-N03" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-        </div>
-        <div class="project-bg-num">03</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="section-label">04 // ESTABLISH_CONNECTION</div>
-    <h2 class="section-title">Contact</h2>
-
-    <div class="contact-layout">
-      <div class="contact-terminal glass-card">
-        <div class="terminal-header">
-          <span class="t-dot t-red"></span>
-          <span class="t-dot t-yellow"></span>
-          <span class="t-dot t-green"></span>
-          <span class="t-title">contact.sh</span>
-        </div>
-        <div class="contact-lines">
-          <div class="contact-line">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <span class="c-label">EMAIL</span>
-              <a href="mailto:vickyreddy2005@gmail.com">vickyreddy2005@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-line">
-            <i class="fas fa-phone"></i>
-            <div>
-              <span class="c-label">PHONE</span>
-              <a href="tel:+919535251215">+91 95352 51215</a>
-            </div>
-          </div>
-          <div class="contact-line">
-            <i class="fas fa-location-dot"></i>
-            <div>
-              <span class="c-label">LOCATION</span>
-              <span>Bengaluru, Karnataka, IN</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="https://github.com/VIKRAM-N03" target="_blank" class="social-link" title="GitHub">
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-          </a>
-          <a href="https://linkedin.com/in/vikram-ccs" target="_blank" class="social-link" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-cta">
-        <div class="cta-hex">
-          <svg viewBox="0 0 200 230" class="cta-hex-svg">
-            <polygon points="100,10 190,55 190,175 100,220 10,175 10,55" fill="rgba(0,255,159,0.03)" stroke="rgba(0,255,159,0.3)" stroke-width="1.5"/>
-            <polygon points="100,30 170,67 170,163 100,200 30,163 30,67" fill="none" stroke="rgba(0,102,255,0.2)" stroke-width="1"/>
-          </svg>
-          <div class="cta-hex-content">
-            <i class="fas fa-satellite-dish cta-icon"></i>
-            <p>Open to internships, collaborations, and security research opportunities.</p>
-            <a href="mailto:vickyreddy2005@gmail.com" class="primary-btn">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-ascii">
-      <span>{ </span><span class="f-green">secured</span><span> : </span><span class="f-blue">true</span><span> }</span>
-    </div>
-    <p>© 2026 Vikram N &nbsp;•&nbsp; Built with security in mind &nbsp;•&nbsp; <span class="f-green">All rights reserved</span></p>
-  </div>
-</footer>
+</section>
 
 <script src="script.js"></script>
 </body>
