@@ -25,16 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
     p.src = GH.url(file);
   }
 
-  // Hero avatar  →  images/avatar.jpg
+  // Hero avatar  →  images/profile1.png
   const avImg      = document.getElementById('avImg');
   const avFallback = document.getElementById('avFallback');
-  ghLoad(avImg, 'avatar.jpg', () => {
+  ghLoad(avImg, 'profile1.png', () => {      // ✅ changed
     if (avFallback) avFallback.style.display = 'none';
   });
 
-  // About photo  →  images/profile.jpg
+  // About photo  →  images/profile1.png
   const apPhoto = document.getElementById('apPhoto');
-  ghLoad(apPhoto, 'profile.jpg', el => {
+  ghLoad(apPhoto, 'profile1.png', el => {    // ✅ changed
     const wrap = document.getElementById('apWrap');
     if (wrap) wrap.classList.add('loaded');
   });
